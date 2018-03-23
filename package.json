@@ -1,0 +1,32 @@
+{
+  "name": "getonsteem",
+  "description": "Steem Create Account",
+  "version": "0.1.0",
+  "author": "Purec",
+  "dependencies": {
+    "babel-plugin-transform-optional-chaining": "^7.0.0-beta.3",
+    "bootstrap": "^4.0.0",
+    "classnames": "^2.2.5",
+    "dev": "^0.1.3",
+    "gatsby": "^1.9.232",
+    "gatsby-link": "^1.6.39",
+    "gatsby-plugin-react-helmet": "^2.0.7",
+    "react-helmet": "^5.2.0",
+    "steem": "^0.7.1",
+    "woopra": "^1.0.2"
+  },
+  "keywords": [
+    "gatsby",
+    "steem"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write 'src/**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "prettier": "^1.11.1"
+  }
+}
