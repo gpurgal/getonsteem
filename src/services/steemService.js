@@ -13,7 +13,7 @@ export const getCreationFee = () =>
       }))
     )
     .then(({ config, chainProps }) => {
-      const ratio = config['STEEMIT_CREATE_ACCOUNT_WITH_STEEM_MODIFIER']
+      const ratio = config['STEEM_CREATE_ACCOUNT_WITH_STEEM_MODIFIER']
       const fee = `${(
         parseFloat(chainProps.account_creation_fee) * ratio
       ).toFixed(3)} STEEM`
