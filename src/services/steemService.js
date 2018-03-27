@@ -33,13 +33,21 @@ export const isUsernameAvailable = username =>
 
 export const validateWif = wif => {
   if (wif.indexOf('STM') == 0) {
-    return 'It looks like public key'
+    return {
+      error: true,
+      message: 'It looks like public key',
+    }
   } else {
     try {
       steem.auth.wifToPublic(wif)
-      return null
+      return {
+        error: false,
+      }
     } catch (e) {
-      return 'Incorrect key'
+      return {
+        error: true,
+        message: 'Incorrect key',
+      }
     }
   }
 }
@@ -53,7 +61,7 @@ export const generatePassword = () => {
 
 const validateActiveWif = (username, wif) =>
   new Promise((resolve, reject) => {
-    if (validateWif(wif)) {
+    if (!validateWif(wif).error) {
       steem.api.getAccountsAsync([username]).then(([user]) => {
         if (!user) {
           return reject({ error: 'unknown_creator' })
@@ -140,17 +148,9 @@ const isBalanceError = e => {
 }
 
 export const getCreationError = e => {
-  if (
-    isBalanceError(e) &&
-    e.data &&
-    e.data.stack &&
-    e.data.stack[0] &&
-    e.data.stack[0].data
-  ) {
+  if (isBalanceError(e)) {
     const data = e.data.stack[0].data
-    return `Insufficient balance to create account. Balance is ${
-      data['creator.balance']
-    }. Required ${data.required}`
+    return 'Insufficient balance to create account.'
   } else {
     return 'Error when creating account. Check console log for more details.'
   }

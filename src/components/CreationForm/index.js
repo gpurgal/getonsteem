@@ -102,7 +102,7 @@ class CreationForm extends React.Component {
         ...this.state.errors,
         creatorWif:
           this.state.fields.creatorWif &&
-          validateWif(this.state.fields.creatorWif),
+          validateWif(this.state.fields.creatorWif).message,
       },
     })
   }
