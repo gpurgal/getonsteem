@@ -2,6 +2,7 @@ import steem from 'steem'
 import { resolve } from 'rsvp'
 import { key_utils } from 'steem/lib/auth/ecc'
 import { track } from './woopra'
+import { captureException } from './raven'
 
 export const getCreationFee = () =>
   steem.api
@@ -152,6 +153,7 @@ export const getCreationError = e => {
     const data = e.data.stack[0].data
     return 'Insufficient balance to create account.'
   } else {
+    captureException(e)
     return 'Error when creating account. Check console log for more details.'
   }
 }

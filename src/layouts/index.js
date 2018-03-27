@@ -7,6 +7,12 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import Header from '../components/Header'
 import './index.css'
 
+if (process.env.NODE_ENV === `production`) {
+  Raven.config(
+    'https://1a38b1cb5f3f43ecbeabea642a4dbdcf@sentry.io/671851'
+  ).install()
+}
+
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
