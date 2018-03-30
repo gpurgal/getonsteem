@@ -1,3 +1,5 @@
+import Raven from 'raven-js'
+
 const captureException = e => {
   if (process.env.NODE_ENV === `production`) {
     Raven.captureException(e)

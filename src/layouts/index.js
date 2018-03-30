@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import Raven from 'raven-js'
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
 

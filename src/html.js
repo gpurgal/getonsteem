@@ -31,10 +31,6 @@ module.exports = class HTML extends React.Component {
           />
           {this.props.headComponents}
           {css}
-          <script
-            src="https://cdn.ravenjs.com/3.24.0/raven.min.js"
-            crossorigin="anonymous"
-          />
         </head>
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}

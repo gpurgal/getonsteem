@@ -151,6 +151,7 @@ const isBalanceError = e => {
 export const getCreationError = e => {
   if (isBalanceError(e)) {
     const data = e.data.stack[0].data
+    track('insufficient_balance')
     return 'Insufficient balance to create account.'
   } else {
     captureException(e)
