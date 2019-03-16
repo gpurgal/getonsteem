@@ -1,6 +1,6 @@
 # Create Steem Account
 
-Sources for https://getonsteem.com
+No longer maintained.
 
 ## Build instructions
 
